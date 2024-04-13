@@ -29,6 +29,7 @@ const passwordChain = () =>
     .isLength({ min: 5 })
     .withMessage("password must be at least 5 characters")
     .custom(async (val) => {
+      console.log(val);
       for (var i = 0; i < val.length; i++) {
         if (val.charCodeAt(0) >= 97 && val.charCodeAt(0) <= 122 || val.charCodeAt(0) >=48 && val.charCodeAt(0) <=57){
           throw new Error("First character must Be Uppercase");

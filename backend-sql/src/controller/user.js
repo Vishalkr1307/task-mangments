@@ -9,6 +9,7 @@ const sentMail = require("..//util/mail");
 const Register = async (req, res) => {
   try {
     const error = validationResult(req);
+    console.log(error)
     if (!error.isEmpty()) {
       return res.status(404).send(formatOferror(error.array()).join(","));
     }

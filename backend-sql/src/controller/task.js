@@ -1,6 +1,7 @@
 const Task = require("..//module/task");
 const { validationResult } = require("express-validator");
 const { formatOferror } = require("..//util/valdation");
+const User=require("..//module/task")
 
 const addTask = async (req, res) => {
   try {
@@ -24,11 +25,14 @@ const getTask=async(req,res)=>{
             where:{
                 UserId:user.id
             }
+            
+            
         })
         return res.status(200).send(task)
 
     }
     catch(err){
+        console.log(err)
         return res.status(500).send("internal server error");
 
     }
@@ -82,6 +86,7 @@ const deleteTask=async (req,res)=>{
 
     }
     catch(err){
+        // console.log(err)
         return res.status(500).send("internal server error")
     }
 }
